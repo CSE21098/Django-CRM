@@ -55,6 +55,7 @@ To run this project locally, follow these steps:
 (Note - Replace placeholders like `your-username`, `your_database_user`, and `your_database_password` with your actual details before pushing to GitHub. This README.md file provides clear instructions for anyone to set up and use your CRM project locally.)
 
 
+## Demo Images
 ![image](https://github.com/CSE21098/Django-CRM/assets/96134058/d938632f-2143-48fc-8110-3525075ad777)
 ![image](https://github.com/CSE21098/Django-CRM/assets/96134058/52309530-4ec1-448e-b5af-eff78e220ff4)
 ![image](https://github.com/CSE21098/Django-CRM/assets/96134058/3745168c-e30d-4826-b2cd-0cd6380cad70)
