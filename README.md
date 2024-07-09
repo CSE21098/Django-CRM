@@ -1,5 +1,3 @@
-Customer Relationship Management
-
 # CRM Project
 
 This project is a Customer Relationship Management (CRM) system built using Python, Django, MySQL, HTML, and Tailwind CSS. It provides functionalities for managing client details, user authentication, and CRUD operations on records.
