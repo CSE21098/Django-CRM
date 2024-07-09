@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="bg-indigo-900 text-center py-4 lg:px-4 mt-4 mx-3">
+    <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+        <span class="font-semibold mr-2 text-left flex-auto">Welcome {{ user.username }}</span>
+    </div>
+</div>
+<br>
+{%if records %}
+  <div class="relative overflow-x-auto shadow-md mx-3 sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                  <th scope="col" class="px-6 py-3">
+                      id
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Mobile No.
+                    </th>
+                        <th scope="col" class="px-6 py-3">
+                            Email
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Address
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Zipcode
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Created At
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in records %}
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th class="px-6 py-4">
+                            {{ record.id }}
+                        </th>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ record.name }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ record.phone }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ record.email }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ record.address }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ record.zipcode }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ record.created_at }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <a href="{% url 'view_record' record.id %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+  {% endif %}
+{% else %}
+  <div class="flex items-center justify-center h-screen">
+    <div class="bg-white p-8 shadow-md rounded-lg max-w-md w-full">
+      <form class="space-y-4" method="POST">
+        {% csrf_token %}
+        <h2 class="text-xl font-bold mb-4">Enter Login Credentials</h2>
+        <div>
+          <label for="username" class="block mb-1 font-medium">Username:</label>
+          <input type="text" id="username" name="username" placeholder="Enter Your Username" class="w-full p-2 border border-gray-300 rounded-lg" required>
+        </div>
+        <div>
+          <label for="password" class="block mb-1 font-medium">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Enter Your Password" class="w-full p-2 border border-gray-300 rounded-lg" required>
+        </div>
+        <div>
+            <div class="flex items-start">
+                <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-white-700 dark:border-white-600 dark:focus:ring-blue-600 dark:ring-offset-white-800 dark:focus:ring-offset-white-800"/>
+                    </div>
+                    <label for="remember" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">Remember me</label>
+                </div>
+                <a href="#" class="ms-auto text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+            </div>
+            <br>
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-400 transition-colors">Login</button>
+            <div class="text-sm font-medium text-black-500 dark:text-black-300">
+                <br>
+                Not registered? <a href="register" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

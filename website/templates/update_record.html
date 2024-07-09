@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="flex items-center justify-center h-screen">
+    <form class="space-y-4" method="POST" action="{% url 'update_record' record.id %}">
+        <h2 class="text-xl font-bold mb-4">Enter Details</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="flex justify-center mt-6 space-x-4">
+            <button type="submit" class="inline-block text-center min-w-[50px] px-6 py-4 text-white transition-all bg-gray-700 dark:bg-white dark:text-gray-800 rounded-md shadow-xl hover:bg-gray-900 hover:text-white shadow-neutral-300 dark:shadow-neutral-700 hover:shadow-2xl hover:shadow-neutral-400 hover:-translate-y-px">
+                Update Details
+            </button>
+        </div>
+    </form>
+
+{% endblock %}
