@@ -51,8 +51,8 @@ To run this project locally, follow these steps:
 
 ## Contributing
   Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
-
-(Note - Replace placeholders like `your-username`, `your_database_user`, and `your_database_password` with your actual details before pushing to GitHub. This README.md file provides clear instructions for anyone to set up and use your CRM project locally.)
+## Note
+   Replace placeholders like `your-username`, `your_database_user`, and `your_database_password` with your actual details before pushing to GitHub. This README.md file provides clear instructions for anyone to set up and use your CRM project locally.)
 
 
 ## Demo Images
